@@ -285,6 +285,8 @@ static struct cmdinfo
 parse_segment(const char *cmdline)
 {
 	struct cmdinfo ci; //  = malloc(sizeof (struct cmdinfo));
+	ci.envs = NULL;
+	ci.env_count = 0;
 	ci.argv = NULL;
 	ci.argc = 0;
 	ci.background = 0;
@@ -387,6 +389,7 @@ parse_segment(const char *cmdline)
 		ci.envs = realloc(ci.envs, sizeof (struct env_dict) * (ei + 1));
 		ci.envs[ei].name = strndup(argv[ei], eq - argv[ei]);
 		ci.envs[ei].value = strdup(eq + 1);
+		ci.env_count++;
 	}
 	if (ei > 0) {
 		for (int i = ei; i < argc; i++)
