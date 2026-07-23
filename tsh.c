@@ -18,7 +18,7 @@
 #include <signal.h>
 #include <fcntl.h>
 #include <libgen.h>
-#include <sys/errno.h>
+#include <errno.h>
 #include <sys/file.h>
 #include <sys/stat.h>
 #include <sys/types.h>
